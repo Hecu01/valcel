@@ -14,13 +14,13 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-
+    <h1>INDEX MACETAS</h1>
     <div class="">
         <form action="{{ route('macetas.store')}}" method="POST" id="FormArtDeport" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col-3">
-                    <label for="Nombre">Nombre de la maceta</label>
+                    <label for="nombre">Nombre de la maceta</label>
                     <input type="text"id="nombre" class="form-control" name="nombre" aria-label="First name">
                 </div>
                 <div class="col-3">
@@ -43,6 +43,10 @@
                     <label for="boca">Boca</label>
                     <input type="text" id="boca" name="boca" class="form-control"  aria-label="Last name">
                 </div>
+                <div class="col-2 my-2">
+                    <label for="stock">Stock</label>
+                    <input type="text" id="stock" name="stock" class="form-control"  aria-label="Last name">
+                </div>
             </div>
             <button type="submit" class="btn btn-primary">Cargar</button>
         </form>
@@ -55,6 +59,7 @@
             <th scope="col">Precio</th>
             <th scope="col">Peso</th>
             <th scope="col">Medidas</th>
+            <th scope="col">Stock</th>
             <th scope="col"></th>
         </tr>
         </thead>
@@ -66,6 +71,7 @@
                     <td>$ {{ number_format($maceta->precio, 0, ',', '.') }}</td>
                     <td>{{ $maceta->peso }} kg</td>
                     <td>{{ $maceta->base }}x{{ $maceta->altura }}x{{ $maceta->boca }}</td>
+                    <td>{{ $maceta->stock }}</td>
                     <td>
                         <div class="d-flex justify-content-center">
                             <a 

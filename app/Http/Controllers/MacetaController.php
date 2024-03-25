@@ -13,7 +13,7 @@ class MacetaController extends Controller
     public function index()
     {
         $macetas = Maceta::all();
-        return view('welcome', compact('macetas'));
+        return view('macetas.index', compact('macetas'));
         
     }
 
@@ -38,7 +38,8 @@ class MacetaController extends Controller
             'peso' => $request->peso,
             'base' => $request->base , 
             'altura' => $request->altura, 
-            'boca' => $request->boca
+            'boca' => $request->boca,
+            'stock' => $request->stock
         ]);
         
         return redirect()->route('inicio')->with('creado', '¡La maceta '. $macetaNueva->nombre .' ha sido cargado con éxito!');
@@ -58,7 +59,7 @@ class MacetaController extends Controller
     public function edit(string $id)
     {
         $maceta = Maceta::findOrFail($id);
-        return view('editar', compact('maceta'));
+        return view('macetas.editar', compact('maceta'));
     }
 
     /**
@@ -66,8 +67,19 @@ class MacetaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $maceta = Maceta::findOrFail($id);
+        $maceta->update([
+            'nombre' => $request->nombre,
+            'precio' => $request->precio,
+            'peso' => $request->peso,
+            'base' => $request->base,
+            'altura' => $request->altura,
+            'boca' => $request->boca,
+            'stock' => $request->stock
+        ]);
+        return redirect()->back()->with('success', 'Maceta actualizada exitosamente.');
     }
+    
 
     /**
      * Remove the specified resource from storage.

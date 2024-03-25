@@ -2,6 +2,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MacetaController;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\VentaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,16 +19,9 @@ Route::controller(MacetaController::class)->group(function(){
 
     Route::get('/','index')->name('inicio');
     Route::resource('macetas', MacetaController::class);
+    Route::resource('clientes', ClienteController::class);
+    Route::resource('ventas', VentaController::class);
 });
-
-        // Articulos deportivos
-        Route::get('/admin/articulo-deportivo', [ArtDeportController::class, 'IndexArticuloDeportivo'])->name('nuevo_articulo');
-        Route::post('/admin/articulo-deportivo', [ArtDeportController::class, 'agregar_articulo_deportivo'])->name('añadir_articulo');
-        Route::delete('/admin/articulo-deportivo/{id}',[ArtDeportController::class, 'eliminar_articulo'] )->name('eliminar_articulo');
-        Route::get('/admin/articulo-deportivo/editar/{id}', [ArtDeportController::class, 'EditArtDeport'])->name('EditarArtDep');
-        Route::put('/articulos/{id}', [ArtDeportController::class, 'actualizarArtDeport'])->name('articulos.actualizar');
-        Route::get('/accesorio', [ArtDeportController::class, 'busquedaAjaxArtDeportAccesorio']);
-        Route::get('/calzado', [ArtDeportController::class, 'busquedaAjaxArtDeportCalzado']);
 
 Auth::routes();
 
