@@ -1,0 +1,141 @@
+/*#agregar-macetas{
+  width: 500px;
+  background: rgb(255, 0, 0);
+}*/
+#articulo {
+    background: url('img/fondo.jpg') no-repeat center/cover;
+    height: fit-content;
+    width: 500px;
+}
+
+.div-img-mac {
+    border-bottom: 2px solid #fff;
+}
+
+table {
+    font-family: sans-serif;
+
+}
+
+table thead td {
+    font-weight: 600;
+}
+
+table thead td,
+table tbody tr td {
+    padding: 4px;
+    border: 2px solid #fff;
+    border-top: none;
+
+}
+
+table tbody tr td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+span {
+    position: absolute;
+    font-weight: bold;
+    top: 14.5em;
+    color: white;
+    font-size: 1em;
+    text-align: center;
+}
+
+.precio {
+    color: rgb(10, 255, 10);
+    text-shadow: 1px 1px 1px #000;
+    font-weight: 600;
+}
+
+.derecha {
+    margin-top: 3px;
+}
+
+.derecha img {
+    position: absolute;
+    left: 324px;
+    width: 145px;
+    margin-left: 2.4px;
+    border-radius: 10px;
+}
+
+.derecha p {
+    color: #fff;
+    font-size: 5rem;
+    margin-bottom: 5px;
+    margin-top: -5px;
+    padding: 5px 0px;
+    margin-left: 0px;
+    border-bottom: 2px solid #fff;
+}
+
+.envios {
+    top: 9em;
+}
+
+.sin-stock {
+    color: rgb(255, 0, 0);
+}
+
+
+[class="card"] {
+    margin: 5px;
+}
+
+.contenedor-img {
+    margin: auto;
+    height: 260px;
+    border: 1.3px solid rgba(197, 197, 197, 0.445);
+    transition: all 1s;
+}
+
+.contenedor-img img {
+    width: 100%;
+    height: 100%;
+
+}
+
+#cargar_maceta {
+    transition: 0.3s all;
+    text-align: center;
+    border: 1px solid #fff;
+    padding: 10px 0px;
+    width: 100%;
+    cursor: pointer;
+}
+
+#cargar_maceta:hover {
+    background-color: rgba(255, 255, 255, 0.075);
+    transition: 0.3s all;
+}
+
+.label_comun {
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.input_comun {
+    margin-bottom: 10px;
+}
+
+.unica {
+    display: flex;
+}
+
+/*Estilos del formulario*/
+.macetas .left .divisor_macetas .unidades {
+    margin-left: 5px;
+    width: 50px
+}
+
+.macetas .left .title-left {
+    align-content: center;
+    justify-content: space-between;
+}
+
+.macetas .left .divisor_macetas .subtotal {
+    margin-left: 5px;
+    width: 80px
+}

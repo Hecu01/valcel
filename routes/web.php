@@ -15,13 +15,14 @@ use App\Http\Controllers\VentaController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::controller(MacetaController::class)->group(function(){
 
+Route::controller(MacetaController::class)->group(function(){
+    Route::get('/precios', 'precios')->name('precios');
     Route::get('/','index')->name('inicio');
-    Route::resource('macetas', MacetaController::class);
-    Route::resource('clientes', ClienteController::class);
-    Route::resource('ventas', VentaController::class);
 });
+Route::resource('macetas', MacetaController::class);
+Route::resource('clientes', ClienteController::class);
+Route::resource('ventas', VentaController::class);
 
 Auth::routes();
 

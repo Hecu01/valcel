@@ -91,4 +91,11 @@ class MacetaController extends Controller
         return redirect()->route('inicio')->with('eliminado', 'Maceta eliminada correctamente');
 
     }
+    public function precios()
+    {
+        $macetas = Maceta::all();
+        return view('precios', compact('macetas'));
+        
+    }
+
 }
