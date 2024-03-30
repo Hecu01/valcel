@@ -81,7 +81,7 @@ class ClienteController extends Controller
             'telefono' => $request->telefono, 
             'zona' => $request->zona, 
         ]);
-        return redirect()->back()->with('success', 'Maceta actualizada exitosamente.');
+        return redirect()->back()->with('success', 'El cliente '.$cliente->nombre.' '. $cliente->apellido . ' actualizado exitosamente.');
     }
     
 

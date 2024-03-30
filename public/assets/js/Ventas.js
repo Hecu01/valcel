@@ -63,7 +63,7 @@ $(document).ready(function() {
                 $('#ventasArrayInput').val(JSON.stringify(ventasArray));
                 // Limpiar campos después de agregar la venta
                 $("#unidades").val('1')
-                $(".form-select[name='articulo']").val('');
+                $(".form-select[name='maceta']").val('');
                 $("#precio_unitario").val('');
             } else {
                 alert("Seleccione un producto.");

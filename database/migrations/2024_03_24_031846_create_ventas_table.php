@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             // preferentemente si está registrado
-            $table->unsignedBigInteger('cliente_id')->nullable();
+            $table->unsignedBigInteger('cliente_id')->nullable(); 
             $table->foreign('cliente_id')->references('id')->on('clientes');
             
             // otros campos importantes

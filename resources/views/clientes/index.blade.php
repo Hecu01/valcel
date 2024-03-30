@@ -75,11 +75,13 @@
                                 title="Editar">
                                 <i class="fa-solid fa-pen-to-square"></i>
                             </a>
+
                             <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm eliminar-btn mx-1" title="Eliminar"><i class="fa-solid fa-trash"></i></button>
                             </form>
+                            
                             <a href="{{ route('clientes.show', $cliente->id) }}" class="btn btn-secondary btn-sm" title="Visualizar"><i class="fa-solid fa-eye"></i></a>
                         </div>
 
@@ -91,7 +93,9 @@
 
         </tbody>
     </table>
-    {{ $clientes->links() }}
+    <div class=""style="position:relative">
+        {{ $clientes->links('vendor.pagination.bootstrap-5') }}
+    </div>
 
 @endsection
 

@@ -57,6 +57,7 @@
             <th scope="col">ID</th>
             <th scope="col">Nombre</th>
             <th scope="col">Precio</th>
+            <th scope="col">Total disp</th>
             <th scope="col">Peso</th>
             <th scope="col">Medidas</th>
             <th scope="col">Stock</th>
@@ -69,6 +70,7 @@
                     <th scope="row">{{ $maceta->id }}</th>
                     <td>{{ $maceta->nombre }}</td>
                     <td>$ {{ number_format($maceta->precio, 0, ',', '.') }}</td>
+                    <td>$ {{ number_format($maceta->precio * $maceta->stock, 0, ',', '.') }}</td>
                     <td>{{ $maceta->peso }} kg</td>
                     <td>{{ $maceta->base }}x{{ $maceta->altura }}x{{ $maceta->boca }}</td>
                     <td>{{ $maceta->stock }}</td>

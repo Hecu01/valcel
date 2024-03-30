@@ -14,9 +14,9 @@
                     <table class="" style="background: rgb(0,0,0,0.3);">
                         <thead style="color: white">
                             <td>ID</td>
-                            <td>MEDIDAS (CM)</td>
-                            <td>PRECIO</td>
-                            <td>DISPONIBLES</td>
+                            <td class="px-1">MEDIDAS (CM)</td>
+                            <td style="width:90px; text-align:center">PRECIO</td>
+                            <td>STOCK</td>
                         </thead>
                         <tbody>
                             @foreach ($macetas as $maceta)
