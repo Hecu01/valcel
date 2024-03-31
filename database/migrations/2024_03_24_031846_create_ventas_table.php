@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('unidades'); // Campo para el total de unidades vendidas
             $table->decimal('total', 10, 2); // Campo para el total de la venta
   
+            $table->date('fecha')->nullable(); // Fecha
             $table->text('observacion')->nullable(); // Notas o comentarios
             $table->timestamps();
             

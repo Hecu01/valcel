@@ -60,9 +60,12 @@
                             </div>
                             
                         </div> 
-                        <div class="form-floating col-12 mt-3 mb-1">
+                        {{-- <div class="form-floating col-12 mt-3 mb-1">
                             <textarea class="form-control" placeholder="Leave a comment here" id="observacion" name="observacion"></textarea>
                             <label for="observacion">Observación</label>
+                        </div> --}}
+                        <div class="form-floating col-12 mt-3 mb-1">
+                            <input type="date" name="fecha" class="form-date" id="">
                         </div>
                     </div>
                    
