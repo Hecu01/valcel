@@ -13,19 +13,19 @@
                 <div class="izquierda" style="width:65.5%">
                     <table class="" style="background: rgb(0,0,0,0.3);">
                         <thead style="color: white">
-                            <td>ID</td>
-                            <td>MEDIDAS (CM)</td>
-                            <td>PRECIO</td>
-                            <td>DISPONIBLES</td>
+                            <td class="text-center">ID</td>
+                            <td class="px-3">MEDIDAS (CM)</td>
+                            <td style="width:120px; text-align:center">PRECIO</td>
+                            {{-- <td>STOCK</td> --}}
                         </thead>
                         <tbody>
                             @foreach ($macetas as $maceta)
                                 <tr style="color: white; font-size:1.1em">
 
-                                    <td> {{$maceta->id}} </td>                            
+                                    <td> #{{$maceta->id}} </td>                            
                                     <td> {{$maceta->base}}x{{$maceta->altura}}x{{$maceta->boca}} </td>                            
                                     <td class="precio">$ {{$maceta->precio}} </td>                            
-                                    <td> {{$maceta->stock}} </td>                            
+                                    {{-- <td> {{$maceta->stock}} </td>                             --}}
                                 </tr>
                                 
                             @endforeach
@@ -43,5 +43,19 @@
                 </div>
             </div>
         </article>
+        <br>
     </div>
+    <button class="btn btn-primary" id="download">Descargar Flyer</button>
+
+    <script>
+      document.getElementById("download").addEventListener("click", function() {
+        html2canvas(document.getElementById("articulo")).then(function(canvas) {
+          var link = document.createElement("a");
+          link.download = "flyer.png";
+          link.href = canvas.toDataURL("image/png");
+          link.click();
+        });
+      });
+    </script>
+      
 @endsection
