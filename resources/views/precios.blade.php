@@ -10,9 +10,10 @@
                         <p style="margin: 0; padding-right:5px;">Fecha actualización: 16/09/2024</p>
                     </div>
                     <div class="py-1" style="padding-left: 4px;background: #fff; color:#000; border-top: 1px solid #000; border-right: 1px solid #000">
-                        <p style="margin: 0; padding-right:5px;font-size: .92em">Precios validos hasta: 01/10/2024</p>
+                        <p style="margin: 0; padding-right:5px;font-size: .92em">Precios validos hasta: 30/10/2024</p>
                     </div>
                 </div>
+                <span style="position: absolute; top: 0; left: 45%; background:rgb(255, 77, 106); color: #fff; text-align:center; opacity: 0.8" class="px-2">¡OFERTA DIA <br> DE LA MADRE!</span>
                 <img src="{{asset('assets/img/macetas_2024.jpg')}}" alt="" style="width:100%;" draggable="false" >
             </div>
         
@@ -20,7 +21,7 @@
                 <div class="izquierda" style="width:65.5%">
                     <table class="" style="background: rgb(0,0,0,0.3);">
                         <thead style="color: white">
-                            <td class="text-center">ID</td>
+                            <td class="text-center">REF</td>
                             <td class="px-3">MEDIDAS (CM)</td>
                             <td style="width:120px; text-align:center">PRECIO</td>
                             {{-- <td>STOCK</td> --}}
