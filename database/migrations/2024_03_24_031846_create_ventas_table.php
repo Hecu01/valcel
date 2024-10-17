@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
 
             // preferentemente si está registrado
-            $table->unsignedBigInteger('cliente_id')->nullable(); 
-            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->string('cliente')->nullable(); 
+            $table->string('ciudad_cliente')->nullable(); 
             
             // otros campos importantes
             $table->integer('unidades'); // Campo para el total de unidades vendidas

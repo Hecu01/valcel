@@ -69,10 +69,12 @@ class VentaController extends Controller
         }
 
         $ventaNueva = Venta::create([
-            'cliente_id' => $id_cliente,
+            'cliente' => $id_cliente,
             'unidades' => $unidades_total,
             'total' => $importe_total,
             'observacion' => $request->observacion,
+            'ciudad_cliente' => $request->ciudad,
+
             // 'nombre' => $nombre,
             // 'apellido' => $apellido,
             // 'dni' => $dni,

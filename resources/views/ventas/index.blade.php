@@ -16,12 +16,7 @@
                 <div class="row">
                     <div class="col-12">
                         <label for="Nombre">Cliente</label>
-                        <select name="cliente" class="form-select" id="">
-                            <option value="default" hidden selected>Seleccionar cliente</option>
-                            @foreach ($clientes as $cliente)
-                                <option value=" {{$cliente->id}} "> {{$cliente->nombre}} {{$cliente->apellido}}</option>
-                            @endforeach
-                        </select>
+                        <input type="text" class="form-control" name="cliente">
                         <div class="col-12 my-1 d-flex" style="justify-content: space-between">
                             <div class="col-7">
 
@@ -49,8 +44,8 @@
 
                             </div>
                             <div class="col-5 " >
-                                <label for="">Descuento</label> 
-                                <input class="form-control  "  type="text">
+                                <label for="">Ciudad</label> 
+                                <input class="form-control" name="ciudad" type="text">
                             </div>
                             
                         </div> 

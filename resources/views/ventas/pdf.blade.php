@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ public_path('assets/css/pdf.css')}}">
-    <title>Documento PDF</title>
+    <title>Valcel PDF</title>
 </head>
 <body>
     <style>
@@ -34,7 +34,8 @@
         }
         .products tr th, .products tr td{
             font-size:1.3em;
-            text-align: center
+            text-align: center;
+            border: 1px solid #000
         }
     </style>
 
@@ -66,22 +67,21 @@
 
  
     <div class="margin-top">
-        <table class="w-full">
+        <table class="w-full table table-bordered">
             <tr style="font-size:1.1em;">
-                <td class="w-half">
+                <td class="w-half" >
                     <div><h4>Para:</h4></div>
-                    <div>{{ $venta->cliente->nombre }} {{ $venta->cliente->apellido }}  </div>
+                    <div><strong>Cliente</strong> {{ $venta->cliente }}</div>
                     <div>
-                         
-                        123 Fake address
+                        Quilmes, CABA.
                     </div>
                 </td>
-                <td class="w-half">
+                <td class="w-half" >
                     <div><h4>De:</h4></div>
                     <div>Valentin Urbine</div>
                     <div>San Nicolás</div>
                 </td>
-                <td class="w-half">
+                <td class="w-half" style="width: 170px;">
                     <div><h4>Detalle:</h4></div>
                     <div>Fecha: {{ $venta->created_at->format('d/m/Y') }}</div>
                     <div>San Nicolás</div>
@@ -91,7 +91,7 @@
     </div>
  
     <div class="margin-top">
-        <table class="products">
+        <table class="products" id="tabla">
             <tr>
                 <th>ID</th>
                 <th>Maceta</th>
@@ -103,9 +103,9 @@
                 <tr class="items">
                     <td>#{{ $maceta->id }}</td>
                     <td>Maceta {{ $maceta->nombre }}</td>
-                    <td>{{ $maceta->pivot->cantidad }} unidades</td>
-                    <td>$ {{  number_format($maceta->precio, 0, ',', '.') }}</td>
-                    <td>$ {{ number_format($maceta->precio * $maceta->pivot->cantidad, 0, ',', '.') }}</td>
+                    <td>{{ $maceta->pivot->cantidad }}</td>
+                    <td>$ {{  number_format($maceta->pivot->precio_unitario, 0, ',', '.') }}</td>
+                    <td>$ {{ number_format($maceta->pivot->precio_unitario * $maceta->pivot->cantidad, 0, ',', '.') }}</td>
                     
                 </tr>
             @endforeach

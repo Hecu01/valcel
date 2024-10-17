@@ -11,15 +11,10 @@ class Venta extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'cliente_id',
-        'nombre',
-        'apellido',
-        'dni',
+        'cliente',
+        'ciudad_cliente',
         'unidades',
         'total',
-        'payment_method',
-        'invoice_number',
-        'notes', 
         'observacion'
     ];
     // Relación con los productos vendidos en esta venta
