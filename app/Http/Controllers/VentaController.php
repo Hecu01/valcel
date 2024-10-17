@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Barryvdh\DomPDF\Facade\Pdf;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Venta;
 use App\Models\Cliente;
 use App\Models\Maceta;
@@ -20,6 +21,16 @@ class VentaController extends Controller
         $ventas = Venta::all();
         $title = "Valcel - Ventas";
         return view('ventas.index', compact('ventas','title', 'clientes', 'macetas'));
+    }
+
+    public function pdf(string $id){
+        $venta = Venta::find($id);
+        $cliente = Venta::with('cliente')->get();
+
+        $detalleVenta = Venta::with('macetas')->find($id);
+        $pdf = Pdf::loadView('ventas.pdf', compact('venta', 'cliente', 'detalleVenta'));
+        // return $pdf->download('invoice.pdf');
+        return $pdf->stream();
     }
 
     public function pdf(string $id){
@@ -134,6 +145,10 @@ class VentaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Destroy product
+        $venta = Venta::find($id);
+        $venta->delete();
+        return redirect()->route('ventas.index')->with('eliminado', 'Venta eliminada correctamente');
+
     }
 }

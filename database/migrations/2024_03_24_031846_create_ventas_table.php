@@ -15,13 +15,14 @@ return new class extends Migration
             $table->id();
 
             // preferentemente si está registrado
-            $table->string('cliente')->nullable(); 
-            $table->string('ciudad_cliente')->nullable(); 
+            $table->unsignedBigInteger('cliente_id')->nullable(); 
+            $table->foreign('cliente_id')->references('id')->on('clientes');
             
             // otros campos importantes
             $table->integer('unidades'); // Campo para el total de unidades vendidas
             $table->decimal('total', 10, 2); // Campo para el total de la venta
   
+            $table->date('fecha')->nullable(); // Fecha
             $table->text('observacion')->nullable(); // Notas o comentarios
             $table->timestamps();
             

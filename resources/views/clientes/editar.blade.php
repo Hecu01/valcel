@@ -27,11 +27,11 @@
             </div> 
             <div class="col-3">
                 <label for="">telefono</label>
-                <input type="text"name="base" class="form-control" value="{{ $cliente->telefono }}">
+                <input type="text"name="telefono" class="form-control" value="{{ $cliente->telefono }}">
             </div>
             <div class="col-3">
                 <label for="">Zona</label>
-                <input type="text" name="altura" class="form-control" value="{{ $cliente->zona }}">
+                <input type="text" name="zona" class="form-control" value="{{ $cliente->zona }}">
             </div>
         </div>
         <div class="my-2">

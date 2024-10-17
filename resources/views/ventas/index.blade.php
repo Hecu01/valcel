@@ -7,6 +7,12 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
+    @if (session('eliminado'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('eliminado') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <h1>INDEX VENTAS</h1>
     <form action="{{ route('ventas.store')}}" method="POST" id="FormArtDeport" enctype="multipart/form-data" class="row mb-10">
         <div class="col-3">
@@ -94,27 +100,58 @@
             </div>
     
         </div>
-    </div>
+    </form>
 
 
     <table class="table mt-10 container">
         <thead>
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">cliente_id</th>
+            <th scope="col">Cliente</th>
             <th scope="col">unidades</th>
             <th scope="col">total</th>
-            <th scope="col">oberservacion</th>
+            <th scope="col">acción</th>
         </tr>
         </thead>
         <tbody>
             @foreach ($ventas as $venta)
                 <tr>
                     <td>{{$venta->id}}</td>
-                    <td>{{$venta->cliente_id}}</td>
+                    <td>{{ isset($venta->cliente->nombre) ? $venta->cliente->nombre : 'no hay nombre' }}</td>
                     <td>{{$venta->unidades}}</td>
                     <td>$ {{ number_format($venta->total, 0, ',', '.')}}</td>
-                    <td>{{$venta->observacion}}</td>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <div class="">
+
+                                <a 
+                                    href="{{ route('ventas.edit', $venta->id) }}"
+                                    class="btn btn-success btn-sm"
+                                    title="Editar">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                            </div>
+                            <form action="{{ route('ventas.destroy', $venta->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm eliminar-btn mx-1" title="Eliminar"><i class="fa-solid fa-trash"></i></button>
+                            </form>
+                            {{-- <div class="">
+
+                                <a href="{{ route('ventas.show', $venta->id) }}" class="btn btn-secondary btn-sm" title="Visualizar"><i class="fa-solid fa-eye"></i></a>
+                            </div> --}}
+                            <div class="">
+
+                                <a class=" btn btn-primary btn-sm"  href="{{ url("/ventas/pdf/{$venta->id}") }}" title="Generar PDF"  >
+                                    PDF
+                                    <svg fill="#ffffff" class="ml-2" xmlns="http://www.w3.org/2000/svg" height="16" width="12" viewBox="0 0 384 512"><path d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64z"/></svg>
+            
+                                </a>
+                            </div>
+                        </div>
+
+                    </td>
+
                 </tr>
                 
             @endforeach
